@@ -163,6 +163,7 @@
     "unzipper": "0.9.15",
     "winston": "^3.3.3",
     "yaml-schema-validator": "^1.2.2",
+    "moment": "2.15.1",
     "z85": "^0.0.2"
   },
   "devDependencies": {
