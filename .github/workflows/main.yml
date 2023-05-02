@@ -23,3 +23,13 @@ jobs:
         with:
           args: --severity-threshold=high --report --target-name=JosanaDH/juice-shop
           command: iac test
+          
+      # githuboutput
+      - name: SNYK CODE
+      - uses: snyk/actions/setup@master
+        continue-on-error: false
+        run: |
+          snyk code test --severity-threshold=medium --json-file-output=snyk-report.json
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        
