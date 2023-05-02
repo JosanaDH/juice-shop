@@ -26,7 +26,7 @@ jobs:
           
       # githuboutput
       - name: SNYK CODE
-      - uses: snyk/actions/setup@master
+        uses: snyk/actions/setup@master
         continue-on-error: false
         run: |
           snyk code test --severity-threshold=medium --json-file-output=snyk-report.json
