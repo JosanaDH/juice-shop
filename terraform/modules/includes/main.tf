@@ -1,3 +1,15 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 3.20.0"
+    }
+}
+
+  required_version = ">= 0.14"
+}
+
+
 resource "random_string" "suffix" {
   length  = 5
   special = false
@@ -15,6 +27,16 @@ data "aws_eks_cluster" "cluster" {
 data "aws_eks_cluster_auth" "cluster" {
   name = module.eks.cluster_id
 }
+
+provider "aws" {
+  region                      = var.region
+  skip_credentials_validation = true
+  skip_requesting_account_id  = true
+  skip_metadata_api_check     = true
+  access_key                  = var.access_key
+  secret_key                  = var.secret_key
+}
+
 
 data "aws_availability_zones" "available" {}
 
